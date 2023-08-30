@@ -2,7 +2,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { useAuth, useUser } from "../hooks/firebase";
+import { useAuth, useUser } from '../components/utils/firebase';
 import {
   Box,
   Button,
@@ -121,8 +121,7 @@ export default function Signup() {
 
               <Flex flexDirection="column">
                 <Text mb="8" textAlign="center">
-                  アカウントをお持ちの方は
-                  <Link href="/login">こちら</Link>
+                  <Link href="/login">アカウントをお持ちの方はこちら</Link>
                 </Text>
                 <Button
                   type="submit"

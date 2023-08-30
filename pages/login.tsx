@@ -1,6 +1,6 @@
 import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
 import React, { useEffect, useState } from "react";
-import { useAuth, useUser } from "../hooks/firebase";
+import { useAuth, useUser } from '../components/utils/firebase';
 import { useRouter } from "next/router";
 import { Button, FormLabel, Input } from "@chakra-ui/react";
 
@@ -70,7 +70,7 @@ export default function Login() {
           background="gray.800"
           size="lg"
           paddingX="80px"
-          m="0 auto"
+          m="20px auto"
           _hover={{
             background: "gray.700",
           }}
