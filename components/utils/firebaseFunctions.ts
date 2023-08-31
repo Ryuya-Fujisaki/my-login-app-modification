@@ -9,7 +9,8 @@ export const getAllTodos = async () => {
   const todos: Todo[] = [];
   
   querySnapshot.forEach((doc) => {
-    todos.push({ id: doc.id, ...doc.data() });
+    // todos.push({ id: doc.id, ...doc.data() });
+    todos.push({ id: doc.id, title: doc.data().title });
   });
 
   return todos;

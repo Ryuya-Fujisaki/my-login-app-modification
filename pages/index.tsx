@@ -23,7 +23,8 @@ const Home: NextPage = () => {
     onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
     });
-  }, []);
+    // }, []);
+  }, [auth]); //authを依存配列に追加
 
   /* ↓関数「logout」を定義 */
   const logout = async () => {

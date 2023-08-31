@@ -1,5 +1,5 @@
-import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
-import React, { useEffect, useState } from "react";
+import { User, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
+import React, { FormEventHandler, useEffect, useState } from "react";
 import { useAuth, useUser } from '../components/utils/firebase';
 import { useRouter } from "next/router";
 import { Button, FormLabel, Input } from "@chakra-ui/react";
@@ -13,7 +13,7 @@ export default function Login() {
   const router = useRouter();
 
   /* ↓関数「handleSubmit」を定義 */
-  const handleSubmit = async (e) => {
+  const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
 
     try {
@@ -28,11 +28,13 @@ export default function Login() {
   };
 
   /* ↓ログインを判定する設定 */
-  const [user, setUser] = useState();
+  const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
-    onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
+    onAuthStateChanged(auth, (currentUse: User | null) => {
+      if (currentUser !== undefined) {
+        setUser(currentUser);
+      }
     });
   });
 
